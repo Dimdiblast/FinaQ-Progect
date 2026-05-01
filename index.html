@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinaQ Ecosystem - Premium Finance AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- ЧАСТЬ 1: ЛЕНДИНГ (ПЕРВАЯ СТРАНИЦА)         -->
+    <!-- ========================================== -->
+    <div id="landingView" class="w-full min-h-screen relative block overflow-hidden">
+        <div class="shape w-64 h-64 sm:w-96 sm:h-96 bg-blue-600/20 top-[-10%] left-[-5%]"></div>
+        <div class="shape w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] bg-purple-600/10 bottom-[10%] right-[-10%]" style="animation-duration: 25s;"></div>
+        <div class="shape w-48 h-48 sm:w-64 sm:h-64 bg-blue-400/10 top-[40%] right-[20%]"></div>
+
+        <nav class="fixed top-0 w-full z-50 px-4 sm:px-6 py-4">
+            <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-3xl px-6 sm:px-10 py-4 sm:py-5">
+                <!-- Логотип: FINA белая, Q - акцентная -->
+                <div class="text-xl sm:text-2xl font-black font-montserrat tracking-tighter"><span class="text-white">FINA</span><span style="color: var(--accent)">Q</span></div>
+                
+                <!-- ОБНОВЛЕННОЕ МЕНЮ (Оставлено: О нас, Будущие планы) -->
+                <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+                    <a href="#about" class="hover:opacity-100 hover:accent-blue transition">О нас</a>
+                    <a href="javascript:void(0)" onclick="openDev()" class="hover:opacity-100 hover:accent-blue transition">Будущие Планы</a>
+                </div>
+                
+                <div id="navAuthSection">
+                    <button onclick="toggleModal()" class="bg-white text-black px-6 sm:px-8 py-2 sm:py-2.5 rounded-full font-bold text-xs hover:scale-105 active:scale-95 transition shadow-xl shadow-white/10">
+                        ВОЙТИ
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="relative min-h-screen flex items-center justify-center text-center px-4 sm:px-6 pt-24 sm:pt-0">
+            <div class="max-w-5xl mt-10 sm:mt-20">
+                <div class="inline-block px-4 py-1 rounded-full border border-blue-500/30 text-[9px] sm:text-[10px] font-bold tracking-[0.2em] sm:tracking-[0.3em] text-blue-400 uppercase mb-6 sm:mb-8" style="color: var(--accent); border-color: var(--accent);">
+                    Financial Intelligence AI
+                </div>
+                <h1 class="text-5xl sm:text-7xl md:text-[110px] font-black font-montserrat leading-[1.1] md:leading-[0.9] mb-6 sm:mb-8 tracking-tighter break-words">
+                    ФИНАНСОВАЯ <br class="hidden sm:block"><span class="accent-blue italic">СВОБОДА.</span> ПРОСТО.
+                </h1>
+                <p id="heroSubtitle" class="text-gray-400 text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-2">
+                    Твой умный ИИ-ассистент, который учит дружить с деньгами <br class="hidden md:block"> 
+                    и принимать решения, работающие на тебя.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                    <button id="mainCta" onclick="handleMainAction()" class="btn-gradient w-full sm:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg shadow-2xl shadow-blue-500/20 hover:scale-105 transition-all text-white">
+                        Начать сейчас
+                    </button>
+                    <a href="#about" class="glass w-full sm:w-auto px-10 sm:px-12 py-4 sm:py-5 rounded-2xl font-bold text-base sm:text-lg hover:bg-white/10 transition-all">
+                        Узнать больше
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <section id="about" class="py-20 sm:py-32 px-4 sm:px-6 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-16 sm:mb-20 text-center lg:text-left">
+                    <div class="lg:col-span-7">
+                        <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold font-montserrat mb-4 sm:mb-6">Почему <span class="accent-blue italic">FinaQ?</span></h2>
+                        <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+                            В Казахстане лишь 40% людей обладают финансовой грамотностью. Мы создали систему, которая не просто считает деньги, а меняет твое мышление и учит управлять личными финансами.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                        <div class="glass p-6 rounded-3xl text-center lg:text-right">
+                            <div class="text-4xl sm:text-5xl font-black accent-blue mb-2">40%</div>
+                            <div class="text-[9px] sm:text-[10px] uppercase tracking-widest opacity-50">Уровень грамотности в РК</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="features" class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                    <div class="glass-card p-6 sm:p-10 rounded-[30px] sm:rounded-[40px]">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-6 sm:mb-8">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 font-montserrat">ИИ Ассистент (Главная)</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                            Наш ИИ не просто ведет учет — он отговаривает тебя от импульсивных покупок, задавая наводящие вопросы и обучая правильному мышлению.
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] border-blue-500/20">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-6 sm:mb-8">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 font-montserrat">Умный Вишлист</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                            FinaQ анализирует твои желания. «Не купишь этот хотдог сегодня — через 3 недели накопишь на наушники».
+                        </p>
+                    </div>
+
+                    <div class="glass-card p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] sm:col-span-2 md:col-span-1">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-green-500/20 rounded-2xl flex items-center justify-center mb-6 sm:mb-8">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 font-montserrat">Баланс</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm leading-relaxed">
+                            Мы помогаем найти золотую середину между возможностями и желаниями. Контроль без стресса.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="py-16 sm:py-24 bg-white/[0.02]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+                <h2 class="text-xl sm:text-2xl font-bold font-montserrat mb-8 sm:mb-12 opacity-30 tracking-[0.3em] sm:tracking-[0.5em] uppercase text-xs">Участники проекта (Команда)</h2>
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-8 sm:gap-12">
+                    <div class="group">
+                        <div class="text-lg sm:text-xl font-bold group-hover:accent-blue transition">АМИР</div>
+                        <div class="text-[9px] sm:text-[10px] opacity-40 uppercase tracking-widest">Аналитик и стратег</div>
+                    </div>
+                    <div class="group">
+                        <div class="text-lg sm:text-xl font-bold group-hover:accent-blue transition">НАЗЫМ</div>
+                        <div class="text-[9px] sm:text-[10px] opacity-40 uppercase tracking-widest">Visual Coordinator</div>
+                    </div>
+                    <div class="group">
+                        <div class="text-lg sm:text-xl font-bold group-hover:accent-blue transition">НИКА</div>
+                        <div class="text-[9px] sm:text-[10px] opacity-40 uppercase tracking-widest">UX Researcher</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЕДИНАЯ ФОРМА РЕГИСТРАЦИИ (сохраняет в БД Кабинета) -->
+        <div id="authModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
+            <div class="glass-card w-full max-w-md p-8 sm:p-12 rounded-[40px] sm:rounded-[50px] relative">
+                <button onclick="toggleModal()" class="absolute top-6 sm:top-8 right-6 sm:right-8 text-gray-500 hover:text-white transition text-xl">&times;</button>
+                <h2 class="text-2xl sm:text-3xl font-bold font-montserrat mb-6 sm:mb-8">Вход в <span class="accent-blue">FinaQ</span></h2>
+                <form id="regForm" class="space-y-4">
+                    <input type="text" id="regLogin" placeholder="Логин / Твое имя" required class="w-full bg-white/5 border border-white/10 p-4 sm:p-5 rounded-2xl focus:border-[var(--accent)] transition outline-none text-white">
+                    <input type="password" id="regEmail" placeholder="Пароль" required class="w-full bg-white/5 border border-white/10 p-4 sm:p-5 rounded-2xl focus:border-[var(--accent)] transition outline-none text-white">
+                    <button type="submit" class="btn-gradient w-full py-4 sm:py-5 rounded-2xl font-bold mt-2 sm:mt-4 hover:scale-[1.02] active:scale-95 transition shadow-lg shadow-blue-500/20 text-white text-sm sm:text-base">
+                        Начать путешествие
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div id="devOverlay" class="dev-overlay flex items-center justify-center cursor-pointer px-4" onclick="closeDev()">
+            <div class="text-center">
+                <div class="text-5xl sm:text-6xl mb-4 sm:mb-6">🚀</div>
+                <h2 class="text-2xl sm:text-4xl font-extrabold font-montserrat tracking-widest uppercase mb-2">Будущие планы</h2>
+                <p class="text-gray-500 uppercase text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] max-w-md mx-auto leading-relaxed">
+                    Интеграция с Ozon/WB, работа на иностранных языках, коллаборации с играми и гос. программами скоро...
+                </p>
+            </div>
+        </div>
+
+        <footer class="py-8 sm:py-12 text-center text-[8px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.5em] text-gray-600">
+            © 2026 FINAQ ECOSYSTEM. SL #165.
+        </footer>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- ЧАСТЬ 2: ЛИЧНЫЙ КАБИНЕТ                    -->
+    <!-- ========================================== -->
+    <div id="dashboardView" class="w-full h-screen hidden flex-row">
+        <!-- СТАРОЕ ОКНО ЛОГИНА (скрыто) -->
+        <div id="loginOverlay" class="modal-overlay fixed inset-0 z-[1000] hidden">
+            <div class="glass p-8 sm:p-12 rounded-[40px] w-full max-w-md text-center mx-4">
+                <div class="text-3xl sm:text-4xl font-black font-montserrat mb-2 italic"><span class="text-white">FINA</span><span style="color: var(--accent)" id="brandQ">Q</span></div>
+                <p class="text-xs sm:text-sm opacity-40 mb-6 sm:mb-8 uppercase tracking-widest">Premium Finance AI</p>
+                <div class="space-y-4">
+                    <input type="text" id="loginInput" placeholder="Логин" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl outline-none focus:border-[var(--accent)] text-white">
+                    <input type="password" id="passInput" placeholder="Пароль" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl outline-none focus:border-[var(--accent)] text-white">
+                    <button onclick="login()" class="w-full py-4 rounded-2xl font-bold uppercase text-xs shadow-lg text-white" style="background: var(--accent)">Войти</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- СИДБАР -->
+        <aside class="w-20 lg:w-64 glass h-full flex flex-col items-center lg:items-start py-6 sm:py-8 px-2 sm:px-4 z-50 shrink-0">
+            <!-- Логотип -->
+            <div class="text-xl sm:text-2xl font-black font-montserrat mb-8 sm:mb-12 px-2 sm:px-4 italic">
+                <span class="hidden lg:inline text-white">FINA</span><span class="hidden lg:inline" style="color: var(--accent)">Q</span>
+                <span class="lg:hidden text-2xl sm:text-3xl" style="color: var(--accent)">Q</span>
+            </div>
+            
+            <nav class="flex-grow w-full space-y-2">
+                <button onclick="switchTab('overview')" id="nav-overview" class="sidebar-link active flex items-center justify-center lg:justify-start gap-4 p-3 sm:p-4 rounded-2xl w-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
+                    <span class="hidden lg:block font-bold text-sm uppercase tracking-widest">Обзор</span>
+                </button>
+                <button onclick="switchTab('stats')" id="nav-stats" class="sidebar-link flex items-center justify-center lg:justify-start gap-4 p-3 sm:p-4 rounded-2xl w-full">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10"></path></svg>
+                    <span class="hidden lg:block font-bold text-sm uppercase tracking-widest">Статистика</span>
+                </button>
+                <!-- Кнопка "Задачи" удалена по инструкции -->
+                
+                <!-- Профиль стал светлее (opacity-80 вместо 40) -->
+                <button onclick="toggleProfile()" class="mt-auto opacity-80 hover:opacity-100 flex items-center justify-center lg:justify-start gap-4 p-3 sm:p-4 w-full transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                    <span class="hidden lg:block font-bold text-xs uppercase tracking-[0.2em]">Профиль</span>
+                </button>
+            </nav>
+
+            <button onclick="toggleAI()" class="gemini-dispatch w-full aspect-square lg:aspect-auto lg:h-14 rounded-2xl flex items-center justify-center gap-3 p-2 group transition-all mt-4 shadow-lg shadow-blue-500/20">
+                <svg class="w-6 h-6 sm:w-7 sm:h-7 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z"/></svg>
+                <span class="hidden lg:block font-black text-xs uppercase tracking-tighter text-white">Gemini Dispatcher</span>
+            </button>
+        </aside>
+
+        <main class="flex-grow flex flex-col p-4 sm:p-6 md:p-8 overflow-y-auto relative w-full">
+            <header class="flex justify-between items-center mb-8 sm:mb-10 fade-in">
+                <div>
+                    <h1 class="text-xl sm:text-2xl md:text-3xl font-black font-montserrat uppercase tracking-tight">Личный кабинет</h1>
+                    <p class="text-[10px] sm:text-sm opacity-40 font-medium">Контролируй свои импульсы сегодня.</p>
+                </div>
+                <div class="flex items-center gap-3 sm:gap-4 glass py-2 px-3 sm:px-4 rounded-2xl cursor-pointer" onclick="toggleProfile()">
+                    <div class="text-right hidden sm:block">
+                        <div id="uName" class="text-sm font-bold leading-none mb-1">...</div>
+                        <div id="uEmail" class="text-[10px] opacity-40">finaq.premium@ai</div>
+                    </div>
+                    <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center border" style="background: var(--accent); border-color: rgba(255,255,255,0.2); opacity: 0.8;">
+                        <span class="text-white font-bold text-sm sm:text-base" id="uInitial">?</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ВКЛАДКА ОБЗОР -->
+            <div id="tabOverview" class="grid lg:grid-cols-3 gap-6 sm:gap-8 fade-in">
+                <div class="lg:col-span-2 space-y-6 sm:space-y-8">
+                    <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
+                        <div class="card-grad p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] border border-white/5 flex flex-col justify-between h-56 sm:h-64 fade-in">
+                            <div class="flex justify-between items-start z-10">
+                                <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold opacity-60">Текущий баланс</span>
+                                <button onclick="openModal('modalBalance')" class="w-8 h-8 rounded-full border flex items-center justify-center transition" style="color: var(--accent); border-color: var(--accent);">+</button>
+                            </div>
+                            <div class="z-10">
+                                <div class="text-3xl sm:text-4xl md:text-5xl font-black font-montserrat mb-2 tracking-tighter" id="displayBalance">₸0.00</div>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase" style="background: rgba(88, 130, 219, 0.2); color: var(--accent);">Безопасный лимит активен</div>
+                            </div>
+                        </div>
+
+                        <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] h-56 sm:h-64 fade-in relative flex flex-col justify-between">
+                            <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold opacity-40 block mb-4">Динамика расходов</span>
+                            <div class="flex items-end justify-between h-20 sm:h-24 gap-1 px-1 sm:px-2" id="statBars">
+                                <div class="flex-grow stat-bar" style="height: 10%"></div>
+                                <div class="flex-grow stat-bar" style="height: 10%"></div>
+                                <div class="flex-grow stat-bar" style="height: 10%"></div>
+                                <div class="flex-grow stat-bar" style="height: 10%"></div>
+                            </div>
+                            <div class="flex justify-between mt-3 sm:mt-4 opacity-40 text-[7px] sm:text-[9px] font-bold uppercase tracking-tighter">
+                                <span>Еда</span><span>Транспорт</span><span>Развлеч.</span><span>Магазин</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] fade-in">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+                            <h3 class="text-base sm:text-lg font-bold font-montserrat uppercase tracking-widest">Аналитика накоплений</h3>
+                            <button onclick="openModal('modalWish')" class="text-[9px] sm:text-[10px] bg-white/5 hover:bg-white/10 px-4 py-2 rounded-full transition uppercase font-bold tracking-widest border border-white/10 w-full sm:w-auto">+ Добавить цель</button>
+                        </div>
+                        <div class="space-y-4 sm:space-y-6" id="wishContainer"></div>
+                    </div>
+
+                    <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] fade-in">
+                        <h3 class="text-xs sm:text-sm font-bold font-montserrat uppercase tracking-[0.2em] mb-3 sm:mb-4 opacity-60">Учет трат</h3>
+                        <button onclick="openModal('modalExpense')" class="w-full py-3 sm:py-4 bg-white/5 border border-white/10 rounded-2xl font-bold text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.3em] transition hover:text-white" style="transition: 0.3s;" onmouseover="this.style.background='var(--accent)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">Добавить расход</button>
+                    </div>
+                </div>
+
+                <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] fade-in h-fit">
+                    <h3 class="text-base sm:text-lg font-bold font-montserrat uppercase tracking-widest mb-6 sm:mb-8">Мои задачи</h3>
+                    <div class="space-y-3 sm:space-y-4" id="taskContainer"></div>
+                    <button onclick="openModal('modalTask')" class="w-full mt-4 sm:mt-6 py-3 sm:py-4 border-2 border-dashed border-white/10 rounded-2xl text-[9px] sm:text-[10px] font-bold uppercase tracking-widest opacity-40 hover:opacity-100 transition" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">+ Новая задача</button>
+                </div>
+            </div>
+
+            <!-- ВКЛАДКА СТАТИСТИКИ -->
+            <div id="tabStats" class="hidden h-auto lg:h-full flex-col lg:flex-row gap-6 sm:gap-8 pb-8 fade-in">
+                <div class="lg:w-1/3 glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] flex flex-col h-[60vh] lg:h-[80vh]">
+                    <h3 class="text-base sm:text-lg font-bold font-montserrat uppercase tracking-widest mb-4 sm:mb-6">История операций</h3>
+                    <div class="overflow-y-auto flex-grow space-y-2 sm:space-y-3 pr-2" id="historyContainer"></div>
+                </div>
+                
+                <div class="lg:w-2/3 flex flex-col gap-6">
+                    <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px]">
+                        <span class="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] font-bold opacity-60 block mb-4 sm:mb-6">Статистика трат</span>
+                        <div class="flex items-end justify-between h-16 sm:h-20 gap-1 sm:gap-2 px-1 sm:px-2" id="statBarsDuplicate">
+                            <div class="flex-grow stat-bar-dup" style="height: 10%"></div>
+                            <div class="flex-grow stat-bar-dup" style="height: 10%"></div>
+                            <div class="flex-grow stat-bar-dup" style="height: 10%"></div>
+                            <div class="flex-grow stat-bar-dup" style="height: 10%"></div>
+                        </div>
+                        <div class="flex justify-between mt-3 sm:mt-4 opacity-40 text-[7px] sm:text-[10px] font-bold uppercase tracking-tighter">
+                            <span>Еда</span><span>Транспорт</span><span>Развлечения</span><span>Шоппинг</span>
+                        </div>
+                    </div>
+
+                    <div class="glass p-6 sm:p-8 rounded-[30px] sm:rounded-[40px] flex flex-col flex-grow h-[40vh] sm:h-[50vh]">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
+                            <h3 class="text-base sm:text-lg font-bold font-montserrat uppercase tracking-widest">Аналитика рынка</h3>
+                            <div class="flex gap-4">
+                                <span class="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest"><div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>Доход</span>
+                                <span class="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest"><div class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>Расход</span>
+                            </div>
+                        </div>
+                        <div class="flex-grow flex items-end gap-1 sm:gap-4 border-b border-white/10 pb-0 relative" id="chartContainer">
+                            <!-- Заполняется JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ПРОФИЛЬ ПАНЕЛЬ -->
+        <div id="profilePanel" class="fixed top-0 right-0 w-full sm:max-w-md h-full glass translate-x-full z-[100] p-6 sm:p-8 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-8 sm:mb-10">
+                <h3 class="font-bold text-base sm:text-lg uppercase tracking-widest">Мой Профиль</h3>
+                <button onclick="toggleProfile()" class="opacity-40 hover:opacity-100 text-2xl sm:text-3xl transition">&times;</button>
+            </div>
+            
+            <div class="mb-6 sm:mb-8 text-center bg-white/5 p-4 sm:p-6 rounded-[20px] sm:rounded-[30px] border border-white/10">
+                <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto rounded-2xl flex items-center justify-center mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-white shadow-lg" style="background: var(--accent);">
+                    <span id="pInitial">?</span>
+                </div>
+                <div id="pName" class="text-lg sm:text-xl font-black font-montserrat mb-1">...</div>
+                <div id="pEmail" class="text-[10px] sm:text-xs opacity-40 font-bold">finaq.premium@ai</div>
+            </div>
+
+            <div class="space-y-4 sm:space-y-6 flex-grow">
+                <div>
+                    <label class="text-[9px] sm:text-[10px] uppercase opacity-40 font-bold mb-2 block">Отображаемая Валюта</label>
+                    <div class="grid grid-cols-4 gap-2">
+                        <button onclick="setCurrency('TG')" id="btn-curr-TG" class="curr-btn active text-white py-2 sm:py-3 rounded-xl text-[10px] sm:text-xs font-bold transition" style="background: var(--accent);">ТГ</button>
+                        <button onclick="setCurrency('USD')" id="btn-curr-USD" class="curr-btn bg-white/5 py-2 sm:py-3 rounded-xl text-[10px] sm:text-xs font-bold transition border border-white/5">USD</button>
+                        <button onclick="setCurrency('EUR')" id="btn-curr-EUR" class="curr-btn bg-white/5 py-2 sm:py-3 rounded-xl text-[10px] sm:text-xs font-bold transition border border-white/5">EUR</button>
+                        <button onclick="setCurrency('RUB')" id="btn-curr-RUB" class="curr-btn bg-white/5 py-2 sm:py-3 rounded-xl text-[10px] sm:text-xs font-bold transition border border-white/5">RUB</button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between bg-white/5 p-3 sm:p-4 rounded-2xl border border-white/10">
+                    <div>
+                        <div class="text-xs sm:text-sm font-bold">Светлая тема</div>
+                        <div class="text-[8px] sm:text-[9px] opacity-40 uppercase tracking-widest mt-1">Оформление интерфейса</div>
+                    </div>
+                    <div class="theme-switch" onclick="toggleTheme()"></div>
+                </div>
+
+                <div>
+                    <label class="text-[9px] sm:text-[10px] uppercase opacity-40 font-bold mb-2 block">Акцентный цвет</label>
+                    <div class="flex flex-wrap gap-3 sm:gap-4 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/10 justify-center sm:justify-start">
+                        <div onclick="setAccentColor('#5882db')" class="color-dot active bg-[#5882db]" id="color-#5882db"></div>
+                        <div onclick="setAccentColor('#10b981')" class="color-dot bg-[#10b981]" id="color-#10b981"></div>
+                        <div onclick="setAccentColor('#f43f5e')" class="color-dot bg-[#f43f5e]" id="color-#f43f5e"></div>
+                        <div onclick="setAccentColor('#8b5cf6')" class="color-dot bg-[#8b5cf6]" id="color-#8b5cf6"></div>
+                        <div onclick="setAccentColor('#f59e0b')" class="color-dot bg-[#f59e0b]" id="color-#f59e0b"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 sm:mt-auto">
+                <button onclick="logout()" id="authButton" class="w-full py-3 sm:py-4 bg-red-500/10 text-red-500 border border-red-500/20 rounded-2xl font-bold uppercase text-[10px] sm:text-xs hover:bg-red-500 hover:text-white transition">Выйти из аккаунта</button>
+            </div>
+        </div>
+
+        <!-- МОДАЛКИ КАБИНЕТА -->
+        <div id="modalBalance" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm text-center">
+                <h3 class="text-lg sm:text-xl font-black mb-4 sm:mb-6 uppercase">Пополнить баланс</h3>
+                <div class="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-6 h-auto sm:h-[56px]">
+                    <input type="number" id="inBalance" placeholder="Сумма" class="w-full sm:w-2/3 bg-white/5 border border-white/10 p-3 sm:px-4 rounded-2xl outline-none font-bold text-white text-lg sm:text-xl text-center">
+                    <div class="custom-select-wrapper w-full sm:w-1/3 h-[50px] sm:h-full" id="currSelectWrapperBalance">
+                        <div class="custom-select-trigger h-full !py-0 flex items-center justify-center rounded-2xl" onclick="toggleCurrencySelect('Balance', event)">
+                            <span id="selectedCurrBalance" class="font-bold text-xs sm:text-sm">₸ KZT</span>
+                        </div>
+                        <div class="custom-options mt-2" id="currOptionsBalance">
+                            <div class="custom-option" onclick="selectCurrencyOption('Balance', 'TG', '₸ KZT')">₸ KZT</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Balance', 'USD', '$ USD')">$ USD</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Balance', 'EUR', '€ EUR')">€ EUR</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Balance', 'RUB', '₽ RUB')">₽ RUB</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3 sm:gap-4">
+                    <button onclick="closeModal('modalBalance')" class="flex-grow p-3 sm:p-4 opacity-40 font-bold uppercase text-[10px] sm:text-xs bg-white/5 rounded-2xl">Отмена</button>
+                    <button onclick="applyBalance()" class="flex-grow p-3 sm:p-4 text-white rounded-2xl font-bold uppercase text-[10px] sm:text-xs" style="background: var(--accent);">ОК</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalExpense" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm">
+                <h3 class="text-lg sm:text-xl font-black mb-4 sm:mb-6 uppercase tracking-tighter">Добавить расход</h3>
+                <label class="text-[9px] sm:text-[10px] uppercase opacity-40 font-bold mb-2 block ml-2">Категория</label>
+                <div class="custom-select-wrapper mb-4 sm:mb-6" id="categorySelect">
+                    <div class="custom-select-trigger p-3 sm:p-4" onclick="toggleCustomSelect(event)">
+                        <span id="selectedOptionLabel" class="text-xs sm:text-sm">🍎 Еда и продукты</span>
+                        <svg class="w-4 h-4 transition-transform" id="selectArrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <div class="custom-options" id="customOptionsList">
+                        <div class="custom-option text-xs sm:text-sm" onclick="selectCustomOption(0, '🍎 Еда и продукты')">🍎 Еда и продукты</div>
+                        <div class="custom-option text-xs sm:text-sm" onclick="selectCustomOption(1, '🚗 Транспорт и такси')">🚗 Транспорт и такси</div>
+                        <div class="custom-option text-xs sm:text-sm" onclick="selectCustomOption(2, '🎬 Развлечения')">🎬 Развлечения</div>
+                        <div class="custom-option text-xs sm:text-sm" onclick="selectCustomOption(3, '🛍️ Магазины и шоппинг')">🛍️ Магазины и шоппинг</div>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-6 h-auto sm:h-[56px]">
+                    <input type="number" id="exVal" placeholder="Сколько потратили?" class="w-full sm:w-2/3 bg-white/5 border border-white/10 p-3 sm:px-4 rounded-2xl outline-none font-bold text-white text-sm">
+                    <div class="custom-select-wrapper w-full sm:w-1/3 h-[50px] sm:h-full" id="currSelectWrapperExpense">
+                        <div class="custom-select-trigger h-full !py-0 flex items-center justify-center rounded-2xl" onclick="toggleCurrencySelect('Expense', event)">
+                            <span id="selectedCurrExpense" class="font-bold text-xs sm:text-sm">₸ KZT</span>
+                        </div>
+                        <div class="custom-options mt-2" id="currOptionsExpense">
+                            <div class="custom-option" onclick="selectCurrencyOption('Expense', 'TG', '₸ KZT')">₸ KZT</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Expense', 'USD', '$ USD')">$ USD</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Expense', 'EUR', '€ EUR')">€ EUR</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Expense', 'RUB', '₽ RUB')">₽ RUB</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3 sm:gap-4">
+                    <button onclick="closeModal('modalExpense')" class="flex-grow p-3 sm:p-4 opacity-40 font-bold uppercase text-[10px] sm:text-xs">Отмена</button>
+                    <button onclick="applyExpense()" class="flex-grow p-3 sm:p-4 text-white rounded-2xl font-bold uppercase text-[10px] sm:text-xs" style="background: var(--accent);">Записать</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalWish" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm">
+                <h3 class="text-lg sm:text-xl font-black mb-4 sm:mb-6 uppercase tracking-tighter">Новая цель</h3>
+                <input type="text" id="wName" oninput="searchPriceHint(this.value)" placeholder="Название (напр. iPhone)" class="w-full bg-white/5 border border-white/10 p-3 sm:p-4 rounded-2xl outline-none mb-3 sm:mb-4 text-white text-sm">
+                <div id="priceHint" class="hidden border p-2 sm:p-3 rounded-xl mb-3 sm:mb-4 flex justify-between items-center" style="background: rgba(88,130,219,0.1); border-color: rgba(88,130,219,0.2);">
+                    <span class="text-[9px] sm:text-[10px] font-bold" style="color: var(--accent);">Средняя цена: <span id="hintVal">0</span></span>
+                    <button onclick="useHint()" class="text-[9px] sm:text-[10px] text-white px-2 py-1 rounded-md font-bold uppercase" style="background: var(--accent);">Взять</button>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-6 h-auto sm:h-[56px]">
+                    <input type="number" id="wTotal" placeholder="Стоимость" class="w-full sm:w-2/3 bg-white/5 border border-white/10 p-3 sm:px-4 rounded-2xl outline-none font-bold text-white text-base sm:text-lg">
+                    <div class="custom-select-wrapper w-full sm:w-1/3 h-[50px] sm:h-full" id="currSelectWrapperWish">
+                        <div class="custom-select-trigger h-full !py-0 flex items-center justify-center rounded-2xl" onclick="toggleCurrencySelect('Wish', event)">
+                            <span id="selectedCurrWish" class="font-bold text-xs sm:text-sm">₸ KZT</span>
+                        </div>
+                        <div class="custom-options mt-2" id="currOptionsWish">
+                            <div class="custom-option" onclick="selectCurrencyOption('Wish', 'TG', '₸ KZT')">₸ KZT</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Wish', 'USD', '$ USD')">$ USD</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Wish', 'EUR', '€ EUR')">€ EUR</div>
+                            <div class="custom-option" onclick="selectCurrencyOption('Wish', 'RUB', '₽ RUB')">₽ RUB</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-3 sm:gap-4">
+                    <button onclick="closeModal('modalWish')" class="flex-grow p-3 sm:p-4 opacity-40 font-bold uppercase text-[10px] sm:text-xs">Отмена</button>
+                    <button onclick="applyWish()" class="flex-grow p-3 sm:p-4 text-white rounded-2xl font-bold uppercase text-[10px] sm:text-xs" style="background: var(--accent);">Создать</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalFund" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm">
+                <h3 class="text-lg sm:text-xl font-black mb-2 uppercase tracking-tighter">Внести в цель</h3>
+                <p id="fundTargetName" class="text-[9px] sm:text-[10px] font-bold mb-4 sm:mb-6 uppercase tracking-widest" style="color: var(--accent);"></p>
+                <div class="grid grid-cols-2 gap-2 mb-4 sm:mb-6" id="quickPercentButtons"></div>
+                <div class="bg-white/5 p-4 sm:p-6 rounded-[20px] sm:rounded-[30px] border border-white/10 mb-4 sm:mb-6 text-center">
+                    <div class="text-2xl sm:text-3xl font-black mb-2" id="sliderVal">0</div>
+                    <input type="range" id="fundSlider" min="0" step="0.01" class="w-full" oninput="updateSliderVal(this.value)">
+                    <div class="flex justify-between mt-2 text-[8px] sm:text-[9px] font-bold opacity-30 uppercase">
+                        <span id="sliderMinLabel">0</span>
+                        <span id="sliderMaxLabel">Max: 0</span>
+                    </div>
+                </div>
+                <div class="flex gap-3 sm:gap-4">
+                    <button onclick="closeModal('modalFund')" class="flex-grow p-3 sm:p-4 opacity-40 font-bold uppercase text-[10px] sm:text-xs">Отмена</button>
+                    <button onclick="applyFund()" class="flex-grow p-3 sm:p-4 text-white rounded-2xl font-bold uppercase text-[10px] sm:text-xs" style="background: var(--accent);">Перевести</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalTask" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm">
+                <h3 class="text-lg sm:text-xl font-black mb-4 sm:mb-6 uppercase tracking-tighter">Новая задача</h3>
+                <input type="text" id="tText" placeholder="Что нужно сделать?" class="w-full bg-white/5 border border-white/10 p-3 sm:p-4 rounded-2xl outline-none mb-4 sm:mb-6 text-white text-sm">
+                <div class="flex gap-3 sm:gap-4">
+                    <button onclick="closeModal('modalTask')" class="flex-grow p-3 sm:p-4 opacity-40 font-bold uppercase text-[10px] sm:text-xs">Отмена</button>
+                    <button onclick="applyTask()" class="flex-grow p-3 sm:p-4 text-white rounded-2xl font-bold uppercase text-[10px] sm:text-xs" style="background: var(--accent);">Добавить</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalDevDashboard" class="modal-overlay fixed inset-0 px-4">
+            <div class="glass p-8 sm:p-12 rounded-[40px] sm:rounded-[50px] w-full max-w-md text-center">
+                <h3 class="text-xl sm:text-2xl font-black mb-3 sm:mb-4">В разработке</h3>
+                <p class="text-[10px] sm:text-sm opacity-40 mb-6 sm:mb-8 uppercase tracking-widest">Будет доступно в версии 2.0</p>
+                <button onclick="closeModal('modalDevDashboard')" class="px-8 sm:px-12 py-3 sm:py-4 bg-white/5 border border-white/10 rounded-2xl font-bold uppercase text-[10px] sm:text-xs">Понятно</button>
+            </div>
+        </div>
+
+        <div id="aiPanel" class="fixed top-0 right-0 w-full sm:max-w-md h-full glass translate-x-full z-[100] p-6 sm:p-8 flex flex-col shadow-2xl">
+            <div class="flex justify-between items-center mb-6 sm:mb-10">
+                <div class="flex items-center gap-3 sm:gap-4">
+                    <div class="gemini-dispatch w-8 h-8 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z"/></svg>
+                    </div>
+                    <h3 class="font-bold text-xs sm:text-sm uppercase tracking-widest">FinaQ Assistant</h3>
+                </div>
+                <button onclick="toggleAI()" class="opacity-40 hover:opacity-100 text-2xl sm:text-3xl transition">&times;</button>
+            </div>
+            <div id="chatBox" class="flex-grow overflow-y-auto flex flex-col gap-2 mb-4 sm:mb-6 pr-2">
+                <div class="text-left mb-2"><span class="bg-white/5 border border-white/10 px-3 sm:px-4 py-2 sm:py-3 rounded-2xl rounded-tl-sm inline-block text-xs sm:text-sm">Привет! Я твой финансовый ассистент. Чем могу помочь сегодня?</span></div>
+            </div>
+            <div class="mt-auto">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-3 sm:p-4 flex gap-3 sm:gap-4 items-center">
+                    <input type="text" id="aiInput" placeholder="Спроси совета..." class="bg-transparent border-none outline-none flex-grow text-xs sm:text-sm text-white" onkeypress="if(event.key === 'Enter') sendMessage()">
+                    <button onclick="sendMessage()" class="text-xl sm:text-2xl hover:scale-110 transition" style="color: var(--accent);">↗</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
