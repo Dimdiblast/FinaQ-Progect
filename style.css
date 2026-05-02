@@ -15,51 +15,66 @@ body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* УЛУЧШЕННАЯ СВЕТЛАЯ ТЕМА (более мягкая и приятная) */
+/* === УЛУЧШЕННАЯ СВЕТЛАЯ ТЕМА === */
 body.light-theme {
-    --bg: #F4F5F7; 
-    --glass: rgba(255, 255, 255, 0.7); 
-    --border: rgba(0, 0, 0, 0.05);
-    --text-main: #2A2A2A; 
+    --bg: #D1D5DB; /* Сделали более мягкий серый, глаза не устают */
+    --glass: rgba(255, 255, 255, 0.85); 
+    --border: rgba(0, 0, 0, 0.12);
+    --text-main: #111827; /* Более читаемый темный цвет текста */
 }
 
 body.light-theme .glass {
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 4px 6px rgba(0, 0, 0, 0.04); /* Добавили тени */
 }
 
 body.light-theme .glass-card {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12); /* Выделили карточки тенью */
 }
 
+/* Фикс читаемости текстов в светлой теме */
 body.light-theme .text-white { color: var(--text-main) !important; }
-body.light-theme .bg-white\/5 { background-color: rgba(0,0,0,0.03) !important; }
+body.light-theme .bg-white\/5 { background-color: rgba(0,0,0,0.06) !important; }
 body.light-theme .border-white\/5, 
-body.light-theme .border-white\/10 { border-color: rgba(0,0,0,0.06) !important; }
+body.light-theme .border-white\/10 { border-color: rgba(0,0,0,0.12) !important; }
+
+body.light-theme .opacity-30 { opacity: 0.65 !important; }
+body.light-theme .opacity-40 { opacity: 0.8 !important; }
+body.light-theme .opacity-60 { opacity: 0.9 !important; }
+
+body.light-theme .text-gray-400, 
+body.light-theme .text-gray-500, 
+body.light-theme .text-gray-600 {
+    color: #374151 !important; /* Убрали кислотность, сделали плотнее */
+}
 
 body.light-theme .card-grad { 
-    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,240,245,0.9) 100%); 
-    border: 1px solid rgba(0,0,0,0.05);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(243,244,246,1) 100%); 
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 body.light-theme .modal-overlay { 
-    background: rgba(244, 245, 247, 0.85); 
+    background: rgba(209, 213, 219, 0.85); 
     backdrop-filter: blur(15px);
 }
 
 body.light-theme .stat-bar, 
 body.light-theme .stat-bar-dup {
-    background: rgba(88, 130, 219, 0.3);
+    background: rgba(88, 130, 219, 0.4);
 }
 
-body.light-theme input { color: #2A2A2A !important; }
-body.light-theme input::placeholder { color: rgba(0,0,0,0.4) !important; }
+body.light-theme input { color: #111827 !important; }
+body.light-theme input::placeholder { color: rgba(0,0,0,0.6) !important; }
 body.light-theme .custom-options {
-    background: #F4F5F7;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    background: #F3F4F6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+body.light-theme .gemini-dispatch {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ef4444); /* Менее кислотный градиент ИИ */
 }
 
 h1, h2, h3, .font-montserrat { font-family: 'Montserrat', sans-serif; }
@@ -89,7 +104,7 @@ h1, h2, h3, .font-montserrat { font-family: 'Montserrat', sans-serif; }
     background: linear-gradient(135deg, var(--accent) 0%, #3a5bb1 100%);
 }
 
-.accent-blue { color: var(--accent); } /* Синхронизация с акцентным цветом */
+.accent-blue { color: var(--accent); }
 
 /* Анимации лендинга */
 .shape {
@@ -112,7 +127,7 @@ h1, h2, h3, .font-montserrat { font-family: 'Montserrat', sans-serif; }
     z-index: 10000;
     backdrop-filter: blur(20px);
 }
-body.light-theme .dev-overlay { background: rgba(244, 245, 247, 0.98); }
+body.light-theme .dev-overlay { background: rgba(209, 213, 219, 0.98); }
 
 /* Стили Личного Кабинета */
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -167,7 +182,6 @@ input[type=number] { -moz-appearance: textfield; }
     transform: translateX(10px);
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-/* Touch devices always show delete button */
 @media (hover: none) { .delete-btn-anim { opacity: 1; transform: translateX(0); } }
 
 .group:hover .delete-btn-anim {
@@ -179,13 +193,13 @@ input[type=number] { -moz-appearance: textfield; }
     color: #f87171;
 }
 
-/* Ползунок стилизация */
+/* Ползунок */
 input[type=range] { -webkit-appearance: none; background: transparent; }
 input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; background: var(--border); border-radius: 10px; }
 input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 18px; width: 18px; border-radius: 50%; background: var(--accent); margin-top: -6px; cursor: pointer; border: 2px solid #fff; }
-body.light-theme input[type=range]::-webkit-slider-thumb { border: 2px solid #F4F5F7; }
+body.light-theme input[type=range]::-webkit-slider-thumb { border: 2px solid #D1D5DB; }
 
-/* ПОЛНОСТЬЮ КАСТОМНЫЙ СЕЛЕКТ */
+/* Кастомный селект */
 .custom-select-wrapper { position: relative; width: 100%; user-select: none; }
 .custom-select-trigger { 
     background: var(--glass); 
@@ -215,7 +229,6 @@ body.light-theme input[type=range]::-webkit-slider-thumb { border: 2px solid #F4
 .custom-option { padding: 12px 16px; cursor: pointer; transition: 0.2s; font-size: 14px; }
 .custom-option:hover { background: var(--accent); color: #fff; }
 
-/* Кнопки процентов */
 .pct-btn {
     background: var(--glass);
     border: 1px solid var(--border);
@@ -249,3 +262,107 @@ body.light-theme .theme-switch::after { transform: translateX(20px); }
 .color-dot { width: 24px; height: 24px; border-radius: 50%; cursor: pointer; transition: 0.2s; }
 .color-dot:hover { transform: scale(1.2); }
 .color-dot.active { border: 3px solid var(--text-main); }
+
+
+/* ========================================================= */
+/* === АДАПТАЦИЯ ДЛЯ МОБИЛОК (ПЛАВАЮЩИЙ НИЖНИЙ ДОК) === */
+/* ========================================================= */
+@media (max-width: 767px) {
+    #dashboardView {
+        flex-direction: column;
+    }
+    
+    /* Освобождаем место снизу для дока */
+    main {
+        padding-bottom: 7rem !important; 
+        width: 100% !important;
+    }
+
+    /* Превращаем боковую панель в плавающий док снизу */
+    .sidebar-dock {
+        position: fixed !important;
+        bottom: 1.25rem !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        width: calc(100% - 2rem) !important;
+        height: 4.8rem !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 2.2rem !important;
+        padding: 0 0.5rem !important;
+        z-index: 90 !important;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5) !important;
+        border: 1px solid rgba(255,255,255,0.1) !important;
+    }
+
+    body.light-theme .sidebar-dock {
+        box-shadow: 0 15px 35px rgba(0,0,0,0.12) !important;
+        background: rgba(255, 255, 255, 0.9) !important;
+        border: 1px solid rgba(0,0,0,0.1) !important;
+    }
+
+    /* Убираем логотип в доке */
+    .sidebar-dock > div:first-child {
+        display: none !important;
+    }
+
+    /* Навигация теперь по сетке из 4 колонок (последняя для Gemini) */
+    .sidebar-dock nav {
+        flex-direction: row !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        align-items: center !important;
+        justify-items: center !important;
+        width: 100% !important;
+        height: 100% !important;
+        margin-bottom: 0 !important;
+        gap: 0 !important;
+    }
+
+    .sidebar-dock nav > button {
+        width: 3.8rem !important;
+        height: 3.8rem !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background: transparent !important;
+    }
+    
+    .sidebar-dock nav button:nth-child(1) { grid-column: 1; }
+    .sidebar-dock nav button:nth-child(2) { grid-column: 2; }
+    .sidebar-dock nav button:nth-child(3) { grid-column: 3; }
+
+    /* Кнопка Gemini теперь сбоку в 4-й ячейке сетки */
+    .sidebar-dock .gemini-dispatch {
+        position: relative !important;
+        grid-column: 4 !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 3.4rem !important;
+        height: 3.4rem !important;
+        border-radius: 1.2rem !important;
+        margin: 0 !important;
+        z-index: 100 !important;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2) !important;
+    }
+
+    body.light-theme .gemini-dispatch {
+        box-shadow: 0 10px 20px rgba(66, 133, 244, 0.25) !important;
+    }
+
+    /* Скрываем текст на кнопке ИИ */
+    .sidebar-dock .gemini-dispatch span { display: none !important; }
+
+    /* Выползающие окна */
+    #profilePanel, #aiPanel {
+        height: calc(100% - 7.5rem) !important;
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+        width: calc(100% - 1.5rem) !important;
+        border-radius: 2.5rem !important;
+    }
+}
