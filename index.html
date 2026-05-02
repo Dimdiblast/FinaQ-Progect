@@ -23,7 +23,7 @@
                 <!-- Логотип: FINA белая, Q - акцентная -->
                 <div class="text-xl sm:text-2xl font-black font-montserrat tracking-tighter"><span class="text-white">FINA</span><span style="color: var(--accent)">Q</span></div>
                 
-                <!-- ОБНОВЛЕННОЕ МЕНЮ (Оставлено: О нас, Будущие планы) -->
+                <!-- ОБНОВЛЕННОЕ МЕНЮ -->
                 <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
                     <a href="#about" class="hover:opacity-100 hover:accent-blue transition">О нас</a>
                     <a href="javascript:void(0)" onclick="openDev()" class="hover:opacity-100 hover:accent-blue transition">Будущие Планы</a>
@@ -131,7 +131,7 @@
             </div>
         </section>
 
-        <!-- ЕДИНАЯ ФОРМА РЕГИСТРАЦИИ (сохраняет в БД Кабинета) -->
+        <!-- ЕДИНАЯ ФОРМА РЕГИСТРАЦИИ -->
         <div id="authModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
             <div class="glass-card w-full max-w-md p-8 sm:p-12 rounded-[40px] sm:rounded-[50px] relative">
                 <button onclick="toggleModal()" class="absolute top-6 sm:top-8 right-6 sm:right-8 text-gray-500 hover:text-white transition text-xl">&times;</button>
@@ -165,29 +165,20 @@
     <!-- ========================================== -->
     <!-- ЧАСТЬ 2: ЛИЧНЫЙ КАБИНЕТ                    -->
     <!-- ========================================== -->
-    <div id="dashboardView" class="w-full h-screen hidden flex-row">
-        <!-- СТАРОЕ ОКНО ЛОГИНА (скрыто) -->
+    <div id="dashboardView" class="w-full h-screen hidden flex-row relative">
         <div id="loginOverlay" class="modal-overlay fixed inset-0 z-[1000] hidden">
-            <div class="glass p-8 sm:p-12 rounded-[40px] w-full max-w-md text-center mx-4">
-                <div class="text-3xl sm:text-4xl font-black font-montserrat mb-2 italic"><span class="text-white">FINA</span><span style="color: var(--accent)" id="brandQ">Q</span></div>
-                <p class="text-xs sm:text-sm opacity-40 mb-6 sm:mb-8 uppercase tracking-widest">Premium Finance AI</p>
-                <div class="space-y-4">
-                    <input type="text" id="loginInput" placeholder="Логин" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl outline-none focus:border-[var(--accent)] text-white">
-                    <input type="password" id="passInput" placeholder="Пароль" class="w-full bg-white/5 border border-white/10 p-4 rounded-2xl outline-none focus:border-[var(--accent)] text-white">
-                    <button onclick="login()" class="w-full py-4 rounded-2xl font-bold uppercase text-xs shadow-lg text-white" style="background: var(--accent)">Войти</button>
-                </div>
-            </div>
+            <!-- СТАРОЕ ОКНО ЛОГИНА (скрыто) -->
         </div>
 
-        <!-- СИДБАР -->
-        <aside class="w-20 lg:w-64 glass h-full flex flex-col items-center lg:items-start py-6 sm:py-8 px-2 sm:px-4 z-50 shrink-0">
+        <!-- СИДБАР (ДОБАВЛЕН КЛАСС sidebar-dock) -->
+        <aside class="sidebar-dock w-20 lg:w-64 glass h-full flex flex-col items-center lg:items-start py-6 sm:py-8 px-2 sm:px-4 z-50 shrink-0">
             <!-- Логотип -->
             <div class="text-xl sm:text-2xl font-black font-montserrat mb-8 sm:mb-12 px-2 sm:px-4 italic">
                 <span class="hidden lg:inline text-white">FINA</span><span class="hidden lg:inline" style="color: var(--accent)">Q</span>
                 <span class="lg:hidden text-2xl sm:text-3xl" style="color: var(--accent)">Q</span>
             </div>
             
-            <nav class="flex-grow w-full space-y-2">
+            <nav class="flex-grow w-full space-y-2 relative">
                 <button onclick="switchTab('overview')" id="nav-overview" class="sidebar-link active flex items-center justify-center lg:justify-start gap-4 p-3 sm:p-4 rounded-2xl w-full">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4zM14 16a2 2 0 012-2h2a2 2 0 012 2v4a2 2 0 01-2 2h-2a2 2 0 01-2-2v-4z"></path></svg>
                     <span class="hidden lg:block font-bold text-sm uppercase tracking-widest">Обзор</span>
@@ -196,9 +187,6 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10"></path></svg>
                     <span class="hidden lg:block font-bold text-sm uppercase tracking-widest">Статистика</span>
                 </button>
-                <!-- Кнопка "Задачи" удалена по инструкции -->
-                
-                <!-- Профиль стал светлее (opacity-80 вместо 40) -->
                 <button onclick="toggleProfile()" class="mt-auto opacity-80 hover:opacity-100 flex items-center justify-center lg:justify-start gap-4 p-3 sm:p-4 w-full transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                     <span class="hidden lg:block font-bold text-xs uppercase tracking-[0.2em]">Профиль</span>
@@ -307,9 +295,7 @@
                                 <span class="inline-flex items-center gap-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-widest"><div class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>Расход</span>
                             </div>
                         </div>
-                        <div class="flex-grow flex items-end gap-1 sm:gap-4 border-b border-white/10 pb-0 relative" id="chartContainer">
-                            <!-- Заполняется JS -->
-                        </div>
+                        <div class="flex-grow flex items-end gap-1 sm:gap-4 border-b border-white/10 pb-0 relative" id="chartContainer"></div>
                     </div>
                 </div>
             </div>
@@ -366,7 +352,7 @@
             </div>
         </div>
 
-        <!-- МОДАЛКИ КАБИНЕТА -->
+        <!-- МОДАЛКИ КАБИНЕТА ... (такие же как и были) -->
         <div id="modalBalance" class="modal-overlay fixed inset-0 px-4">
             <div class="glass p-6 sm:p-10 rounded-[30px] sm:rounded-[40px] w-full max-w-sm text-center">
                 <h3 class="text-lg sm:text-xl font-black mb-4 sm:mb-6 uppercase">Пополнить баланс</h3>
